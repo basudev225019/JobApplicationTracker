@@ -3,15 +3,6 @@ import { Link } from 'react-router-dom';
 import api from '../api.js';
 
 const statuses = ['All', 'Applied', 'Interview', 'Offer', 'Rejected', 'Accepted', 'Declined'];
-const colors = {
-  All: '#1e2a4a',
-  Applied: '#3b82f6',
-  Interview: '#f59e0b',
-  Offer: '#8b5cf6',
-  Rejected: '#ef4444',
-  Accepted: '#10b981',
-  Declined: '#6b7280',
-};
 
 function Home() {
   const [apps, setapps] = useState([]);
@@ -47,63 +38,61 @@ function Home() {
   return (
     <div>
       <div className="pagehead">
-        <h1>My Applications</h1>
-        <p className="muted">Keep track of every job you have applied for</p>
-      </div>
-
-      <div className="countbar">
-        {statuses.map((s) => (
-          <div
-            key={s}
-            className={'countbox ' + (status === s ? 'active' : '')}
-            style={{ borderTopColor: colors[s] }}
-            onClick={() => setstatus(s)}
-          >
-            <div className="countnum">{counts[s] || 0}</div>
-            <div className="countlabel">{s}</div>
-          </div>
-        ))}
-      </div>
-
-      <div className="filters">
+        <h1>Applications</h1>
         <input
           type="text"
-          placeholder="Search by company..."
+          className="search"
+          placeholder="Search company"
           value={search}
           onChange={(e) => setsearch(e.target.value)}
         />
-        <select value={status} onChange={(e) => setstatus(e.target.value)}>
-          {statuses.map((s) => (
-            <option key={s} value={s}>
-              {s === 'All' ? 'All Statuses' : s}
-            </option>
-          ))}
-        </select>
+      </div>
+
+      <div className="tabs">
+        {statuses.map((s) => (
+          <button
+            key={s}
+            className={'tab ' + (status === s ? 'active' : '')}
+            onClick={() => setstatus(s)}
+          >
+            {s}
+            <span className="tabcount">{counts[s] || 0}</span>
+          </button>
+        ))}
       </div>
 
       {error && <div className="errorbox">{error}</div>}
       {loading && <p className="muted">Loading...</p>}
       {!loading && !error && apps.length === 0 && (
-        <div className="empty">No applications found. Add one to get started!</div>
+        <div className="empty">No applications here yet.</div>
       )}
 
-      <div className="cardgrid">
-        {apps.map((a) => (
-          <Link to={'/app/' + a._id} key={a._id} className="card" style={{ borderLeftColor: colors[a.status] }}>
-            <div className="cardtop">
+      {apps.length > 0 && (
+        <div className="list">
+          <div className="listhead">
+            <span>ID</span>
+            <span>Company</span>
+            <span>Type</span>
+            <span>Applied</span>
+            <span>Status</span>
+          </div>
+          {apps.map((a) => (
+            <Link to={'/app/' + a._id} key={a._id} className="listrow">
               <span className="appid">{a.appid}</span>
-              <span className={'badge ' + a.status.toLowerCase()}>{a.status}</span>
-            </div>
-            <h3>{a.company}</h3>
-            <p className="role">{a.role}</p>
-            <div className="cardbottom">
-              <span className="muted">Applied: {new Date(a.applieddate).toLocaleDateString('en-IN')}</span>
-              <span className="muted">{a.jobtype}</span>
-            </div>
-            {a.isOverdue && <span className="overdue">Follow-up Overdue</span>}
-          </Link>
-        ))}
-      </div>
+              <span className="company">
+                <strong>{a.company}</strong>
+                <span className="muted">{a.role}</span>
+              </span>
+              <span className="muted jobtype">{a.jobtype}</span>
+              <span className="muted date">{new Date(a.applieddate).toLocaleDateString('en-IN')}</span>
+              <span className="statuscell">
+                <span className={'badge ' + a.status.toLowerCase()}>{a.status}</span>
+                {a.isOverdue && <span className="overdue">Follow-up Overdue</span>}
+              </span>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

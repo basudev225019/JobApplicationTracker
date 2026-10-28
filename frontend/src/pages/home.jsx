@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 import api from '../api.js';
 
 const statuses = ['All', 'Applied', 'Interview', 'Offer', 'Rejected', 'Accepted', 'Declined'];
+const colors = {
+  All: '#1e2a4a',
+  Applied: '#3b82f6',
+  Interview: '#f59e0b',
+  Offer: '#8b5cf6',
+  Rejected: '#ef4444',
+  Accepted: '#10b981',
+  Declined: '#6b7280',
+};
 
 function Home() {
   const [apps, setapps] = useState([]);
@@ -37,11 +46,17 @@ function Home() {
 
   return (
     <div>
+      <div className="pagehead">
+        <h1>My Applications</h1>
+        <p className="muted">Keep track of every job you have applied for</p>
+      </div>
+
       <div className="countbar">
         {statuses.map((s) => (
           <div
             key={s}
             className={'countbox ' + (status === s ? 'active' : '')}
+            style={{ borderTopColor: colors[s] }}
             onClick={() => setstatus(s)}
           >
             <div className="countnum">{counts[s] || 0}</div>
@@ -74,7 +89,7 @@ function Home() {
 
       <div className="cardgrid">
         {apps.map((a) => (
-          <Link to={'/app/' + a._id} key={a._id} className="card">
+          <Link to={'/app/' + a._id} key={a._id} className="card" style={{ borderLeftColor: colors[a.status] }}>
             <div className="cardtop">
               <span className="appid">{a.appid}</span>
               <span className={'badge ' + a.status.toLowerCase()}>{a.status}</span>

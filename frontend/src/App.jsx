@@ -8,7 +8,9 @@ function App() {
     <div>
       <nav className="navbar">
         <Link to="/" className="logo">JobTracker</Link>
-        <Link to="/add" className="btn btnprimary">+ Add Application</Link>
+        <Link to="/add" className="btn btnprimary">
+          + Add<span className="hidemobile"> Application</span>
+        </Link>
       </nav>
       <div className="container">
         <Routes>

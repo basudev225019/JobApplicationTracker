@@ -11,6 +11,8 @@ app.get('/', (req, res) => {
   res.json({ success: true, message: 'Job Tracker API is Running', data: null });
 });
 
+app.use('/api/applications', require('./routes/applications'));
+
 const port = process.env.PORT || 5000;
 
 mongoose

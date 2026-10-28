@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/home.jsx';
 import AppForm from './pages/appform.jsx';
+import Details from './pages/details.jsx';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/add" element={<AppForm />} />
           <Route path="/edit/:id" element={<AppForm />} />
+          <Route path="/app/:id" element={<Details />} />
         </Routes>
       </div>
     </div>

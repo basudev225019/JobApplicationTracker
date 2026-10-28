@@ -93,7 +93,7 @@ function AppForm() {
     }
     req
       .then(() => {
-        navigate('/');
+        navigate(isedit ? '/app/' + id : '/');
       })
       .catch((err) => {
         setservererror(err.response ? err.response.data.message : 'Could not connect to server');
@@ -165,7 +165,7 @@ function AppForm() {
         </div>
 
         <div className="formbtns">
-          <Link to="/" className="btn btngrey">Cancel</Link>
+          <Link to={isedit ? '/app/' + id : '/'} className="btn btngrey">Cancel</Link>
           <button type="submit" className="btn btnprimary" disabled={saving}>
             {saving ? 'Saving...' : isedit ? 'Update' : 'Add Application'}
           </button>

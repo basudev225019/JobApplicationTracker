@@ -283,7 +283,103 @@ a {
   margin-top: 6px;
 }
 
+.btnred {
+  background: #ef4444;
+  color: white;
+}
+
+.btnred:hover:not(:disabled) {
+  background: #dc2626;
+}
+
+.successbox {
+  background: #d1fae5;
+  color: #047857;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.details {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.backlink {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #4f6ef7;
+}
+
+.detailcard {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.infogrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 10px 0;
+  padding: 12px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.statusrow {
+  display: flex;
+  gap: 10px;
+}
+
+.statusrow select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.timeline {
+  border-left: 3px solid #dde2ee;
+  margin-left: 8px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tlitem {
+  position: relative;
+}
+
+.tldot {
+  position: absolute;
+  left: -29px;
+  top: 3px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 1px #ccc;
+}
+
 @media (max-width: 768px) {
+  .infogrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .countbar {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -309,6 +405,10 @@ a {
 
   .formcard {
     padding: 16px;
+  }
+
+  .statusrow {
+    flex-direction: column;
   }
 
   .navbar .btn {

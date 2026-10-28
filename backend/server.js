@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.json({ success: true, message: 'Job Tracker API running', data: null });
+  res.json({ success: true, message: 'Job Tracker API is Running', data: null });
 });
 
 const PORT = process.env.PORT || 5000;

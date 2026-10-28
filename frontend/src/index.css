@@ -1,0 +1,236 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f3f5fa;
+  color: #222;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 30px;
+  background: #1e2a4a;
+  color: white;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.btn {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.btnprimary {
+  background: #4f6ef7;
+  color: white;
+}
+
+.btnprimary:hover {
+  background: #3b57d6;
+}
+
+.countbar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.countbox {
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.countbox.active {
+  border-color: #4f6ef7;
+}
+
+.countnum {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.countlabel {
+  font-size: 13px;
+  color: #666;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters input,
+.filters select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.filters input {
+  flex: 1;
+}
+
+.cardgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.15s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.cardtop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardbottom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.appid {
+  font-size: 13px;
+  font-weight: bold;
+  color: #4f6ef7;
+}
+
+.role {
+  color: #555;
+}
+
+.muted {
+  color: #888;
+  font-size: 13px;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.applied {
+  background: #3b82f6;
+}
+
+.interview {
+  background: #f59e0b;
+}
+
+.offer {
+  background: #8b5cf6;
+}
+
+.rejected {
+  background: #ef4444;
+}
+
+.accepted {
+  background: #10b981;
+}
+
+.declined {
+  background: #6b7280;
+}
+
+.overdue {
+  background: #fde2e2;
+  color: #d62828;
+  border: 1px solid #d62828;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.errorbox {
+  background: #fde2e2;
+  color: #b91c1c;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.empty {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+  background: white;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .countbar {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .navbar {
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .countbar {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .navbar .btn {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
+}

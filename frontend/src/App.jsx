@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/home.jsx';
+import AppForm from './pages/appform.jsx';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
       <div className="container">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/add" element={<AppForm />} />
+          <Route path="/edit/:id" element={<AppForm />} />
         </Routes>
       </div>
     </div>

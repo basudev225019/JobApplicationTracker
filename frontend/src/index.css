@@ -210,6 +210,79 @@ a {
   border-radius: 10px;
 }
 
+.btngrey {
+  background: #e2e5ec;
+  color: #333;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.formcard {
+  background: white;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formcard h2 {
+  margin-bottom: 18px;
+}
+
+.row {
+  display: flex;
+  gap: 14px;
+}
+
+.row .field {
+  flex: 1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.field input:disabled {
+  background: #f0f0f0;
+  color: #777;
+}
+
+.fielderror {
+  color: #d62828;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.formbtns {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
 @media (max-width: 768px) {
   .countbar {
     grid-template-columns: repeat(4, 1fr);
@@ -227,6 +300,15 @@ a {
 
   .filters {
     flex-direction: column;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .formcard {
+    padding: 16px;
   }
 
   .navbar .btn {
